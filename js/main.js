@@ -138,7 +138,11 @@ const obtenerSuma = (suma, n) => suma + n;
 const filtrarImpares = (impares, n) => {
   if (n % 2 === 1) impares.push(n);
   return impares;
+}
 
+const filtrarImparesFuncional = (impares, n) => {
+  if (n % 2 === 1) return [...impares, n]
+  return impares;
 }
 console.log('Numeros pares', numeros.filter(esPar));
 console.log('Numeros impares con ramda.js',R.reject(esPar, numeros));
@@ -149,13 +153,14 @@ console.log('Objeto con valores mapeados con ramda.js',R.map(aDescripcion, punta
 
 console.log('Suma de numeros con reduce',numeros.reduce(obtenerSuma, 0));
 console.log('Filtrando impares con reduce',numeros.reduce(filtrarImpares, []));
+console.log('Filtrando impares con reduce',numeros.reduce(filtrarImparesFuncional, []));
 
 //////////////////////////ACTIVIDADES//////////////////////////////////
 function obtenerNumerosUnicos(numeros) {
   //La comida va aqui
 }
 
-function obtenerUsuariosDeHotmailEnCSV(usuarios) {
+function obtenerMapaDeUsuariosConHotmail(usuarios) {
   //La comida va aqui
 }
 
@@ -163,4 +168,4 @@ document.querySelector('#numeros').innerText = JSON.stringify(numeros);
 document.querySelector('#resultadoNumeros').innerText = JSON.stringify(obtenerNumerosUnicos(numeros)) || 'TODO';
 
 document.querySelector('#usuarios').innerText = JSON.stringify(faker, null, 2);
-document.querySelector('#resultadoUsuarios').innerText = obtenerUsuariosDeHotmailEnCSV(faker)  || 'TODO';
+document.querySelector('#resultadoUsuarios').innerText = obtenerMapaDeUsuariosConHotmail(faker)  || 'TODO';
